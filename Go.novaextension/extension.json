@@ -1,0 +1,54 @@
+{
+  "identifier": "go.pengcu",
+  "name": "Go",
+  "organization": "pengcu",
+  "description": "goimports",
+  "version": "1.0",
+  "categories": ["completions", "languages"],
+  "main": "main.js",
+  "min_runtime": "6.0",
+  "repository": "https://github.com/pengcu/Go-for-Nova",
+  "activationEvents": ["onLanguage:Go", "onWorkspaceContains:*.go"],
+  "entitlements": {
+    "process": true,
+    "requests": false,
+    "filesystem": "readwrite"
+  },
+  "config": [
+    {
+      "key": "go.enable-gopls",
+      "title": "Enable Language Server",
+      "description": "Use the `gopls` language server, you need install `gopls` first.",
+      "link": "https://github.com/golang/tools/blob/master/gopls/README.md",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "key": "go.format-on-save",
+      "title": "Format/Organize Imports when saving file",
+      "description": "When saving, use `goimports` to format file according to Go formatting standards and organize imports",
+      "type": "boolean",
+      "default": false
+    }
+  ],
+  "commands": {
+    "editor": [
+      {
+        "title": "Jump to Definition",
+        "command": "go.jumpToDefinition",
+        "when": "editorHasFocus",
+        "filters": {
+          "syntaxes": ["go"]
+        }
+      },
+      {
+        "title": "Format",
+        "command": "go.format",
+        "when": "editorHasFocus",
+        "filters": {
+          "syntaxes": ["go"]
+        }
+      }
+    ]
+  }
+}
